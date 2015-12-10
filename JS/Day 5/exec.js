@@ -36,3 +36,24 @@ for(var i = 0; i < strings.length; i++){
 
 console.log(niceStrings.length);
 
+niceStrings = [];
+
+for(var i = 0; i < strings.length; i++){
+    if(strings[i].length == 0 ) continue;
+    var pair = false;
+    var repeat = false;
+    for(var c = 0; c < strings[i].length - 2; c++){
+        if(strings[i][c] == strings[i][c+2])
+            pair=true;
+    }
+    for(var c = 0; c < strings[i].length - 1; c++){
+        if(strings[i].lastIndexOf(strings[i].substring(c,c+2)) > c + 1)
+            repeat=true;
+    }
+    if(pair&&repeat){
+        niceStrings.push(strings[i]);
+        console.log(strings[i]);
+    }
+}
+
+console.log(niceStrings.length);
